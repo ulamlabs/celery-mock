@@ -15,7 +15,7 @@ test_requirements = [
 
 setup(
     name='celery-mock',
-    version='0.1.1',
+    version='1.0.1',
     description=(
         "celery-mock allows you to mock celery task "
         "and then run them when you want"

@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
 
+import celery_mock
+
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
@@ -15,7 +17,7 @@ test_requirements = [
 
 setup(
     name='celery-mock',
-    version='1.0.1',
+    version=celery_mock.__version__,
     description=(
         "celery-mock allows you to mock celery task "
         "and then run them when you want"

@@ -42,6 +42,11 @@ class CeleryTaskMock(object):
         self.calls = []
 
     def start(self):
+        try:
+            _mocked_apply_async = _mocked_fn.start()
+            _mocked_apply_async.side_effect = _apply_async
+        except TypeError:
+            pass
         already_mocked = (
             ALL in _mocked_tasks or
             self.taskname in _mocked_tasks or
@@ -70,9 +75,9 @@ class CeleryTaskMock(object):
 
     def __exit__(self, *exc_info):
         self.stop()
+        _mocked_fn.stop()
 
-
-def _apply_async(selftask, a, kw, *args, **kwargs):
+def _apply_async(selftask, a, kw=None, *args, **kwargs):
     tmock = _mocked_tasks.get(ALL) or _mocked_tasks.get(selftask.name)
     if tmock:
         tmock.calls.append((selftask, a, kw))
@@ -80,11 +85,8 @@ def _apply_async(selftask, a, kw, *args, **kwargs):
 
     return _super_apply_async(selftask, *args, **kwargs)
 
-
-_mocked_apply_async = mock.patch.object(
+_mocked_fn = mock.patch.object(
     Task, 'apply_async', autospec=True,
-).start()
-_mocked_apply_async.side_effect = _apply_async
-
+)
 task_mock = CeleryTaskMock
 del CeleryTaskMock

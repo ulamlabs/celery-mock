@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import mock
+from unittest import mock
 from celery import Task, states
 from celery.result import EagerResult
 from celery.utils import uuid

@@ -23,14 +23,14 @@ This is hard to test because celery tasks run (and retry) inline in tests.
 Now you can choose when to run your tasks.
 
 Supported versions
-================
+==================
 
 - Python 3 support
 - Celery 3.1.x and 4.0.x support 
 
 
 How to install
-==========
+================
 
     .. code-block:: bash
     

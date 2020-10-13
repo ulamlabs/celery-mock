@@ -77,6 +77,7 @@ class CeleryTaskMock(object):
         self.stop()
         _mocked_fn.stop()
 
+
 def _apply_async(selftask, a, kw=None, *args, **kwargs):
     tmock = _mocked_tasks.get(ALL) or _mocked_tasks.get(selftask.name)
     if tmock:
@@ -84,6 +85,7 @@ def _apply_async(selftask, a, kw=None, *args, **kwargs):
         return EagerResult(uuid(), None, states.PENDING)
 
     return _super_apply_async(selftask, *args, **kwargs)
+
 
 _mocked_fn = mock.patch.object(
     Task, 'apply_async', autospec=True,

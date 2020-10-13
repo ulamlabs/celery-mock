@@ -12,6 +12,11 @@ requirements = [
     'mock',
 ]
 
+install_requires = [
+    'mock',
+    'celery',
+]
+
 test_requirements = [
 ]
 

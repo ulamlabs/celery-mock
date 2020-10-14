@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "celery-mock"
-version = "1.1.5"
+version = "1.1.6"
 description = "celery-mock allows you to mock celery task and run them when you want"
 authors = ["Konrad Rotkiewicz <konrad@ulam.io>"]
 license = "MIT"

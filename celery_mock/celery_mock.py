@@ -75,7 +75,8 @@ class CeleryTaskMock(object):
 
     def __exit__(self, *exc_info):
         self.stop()
-        _mocked_fn.stop()
+        if not _mocked_tasks:
+            _mocked_fn.stop()
 
 
 def _apply_async(selftask, a=None, kw=None, *args, **kwargs):

@@ -19,16 +19,15 @@ classifiers=[
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.7",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.3",
-    "Programming Language :: Python :: 3.4",
-    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
 ]
 include = [
     "tests/**/*"
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.5"
+python = ">=3.6"
 celery = "^5.0.0"
 
 [tool.poetry.dev-dependencies]

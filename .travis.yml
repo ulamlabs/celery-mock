@@ -1,6 +1,5 @@
 language: python
 python:
- - "2.7"
  - "3.6"
  - "3.7"
 
@@ -11,9 +10,9 @@ env:
 
 install: 
   - pip install -U pip
-  - pip install codecov
+  - pip install poetry==1.1.2
+  - poetry config virtualenvs.create false && poetry install
   - pip install "$CELERY"
-  - pip install -r requirements_dev.txt
 
 before_script:
   - pip freeze

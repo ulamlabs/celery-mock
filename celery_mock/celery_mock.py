@@ -78,7 +78,7 @@ class CeleryTaskMock(object):
         _mocked_fn.stop()
 
 
-def _apply_async(selftask, a, kw=None, *args, **kwargs):
+def _apply_async(selftask, a=None, kw=None, *args, **kwargs):
     tmock = _mocked_tasks.get(ALL) or _mocked_tasks.get(selftask.name)
     if tmock:
         tmock.calls.append((selftask, a, kw))

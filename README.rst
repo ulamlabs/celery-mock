@@ -68,4 +68,4 @@ How to use
                 tmock = task_mock().start()
                 client.post('/api/users/', data={'username': 'konrad')
                 # no tasks started yet
-                tomock.stop()  # all tasks ran here
+                tmock.stop()  # all tasks ran here

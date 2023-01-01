@@ -42,11 +42,12 @@ class CeleryTaskMock(object):
         self.calls = []
 
     def start(self):
-        try:
-            _mocked_apply_async = _mocked_fn.start()
-            _mocked_apply_async.side_effect = _apply_async
-        except TypeError:
-            pass
+        if not _mocked_tasks:
+            try:
+                _mocked_apply_async = _mocked_fn.start()
+                _mocked_apply_async.side_effect = _apply_async
+            except TypeError:
+                pass
         already_mocked = (
             ALL in _mocked_tasks or
             self.taskname in _mocked_tasks or
